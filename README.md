@@ -1,2 +1,2 @@
 # learning_vue
-just some note
+just some notes
