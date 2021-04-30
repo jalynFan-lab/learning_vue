@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    totalPrice:{{totalPrice}}
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          books:[
+            {id:001,name:"我是一只小鸟",price:100},
+            {id:002,name:"我是一只青蛙",price:110},
+            {id:003,name:"我是一只乌龟",price:90},
+          ]
+      },
+      computed:{
+        totalPrice:function(){
+
+          let result = 0;
+          // for(let i = 0;i < this.books.length; i++){
+          //   result += this.books[i].price;
+          // }
+
+          for(let b of this.books){
+            result += b.price;
+          }
+           return result
+          }
+          
+      }
+    });
+  </script>
+</body>
+
+</html>

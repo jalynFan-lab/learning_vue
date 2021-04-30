@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="..\..\contents\js\vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2>{{message}}</h2>
+    <h2 v-once>{{message}}</h2>
+    <!-- v-once只会显示第一次绑定的数据，之后的数据改变不会随着改变 -->
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは"
+      }
+    });
+  </script>
+</body>
+
+</html>

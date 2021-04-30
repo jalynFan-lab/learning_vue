@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{message}}
+    <cnp2></cnp2>
+  </div>
+
+  <script>
+
+//cnp1
+
+const cnpCon1 = Vue.extend({
+  template:`
+      <div>
+        <h2>title1</h2>
+        <h3>aaaaaaaaaa</h3>
+      </div>
+      `
+})
+
+const cnpCon2 = Vue.extend({
+  template:`
+      <div>
+        <h2>title2</h2>
+        <h3>bbbbbbbbbbb</h3>
+        <cnp1></cnp1>
+      </div>
+      `,
+      components:{
+        cnp1:cnpCon1
+      }
+})
+
+
+// root cnp
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは"
+      },
+      components:{
+        cnp2:cnpCon2
+      }
+    });
+  </script>
+</body>
+
+</html>

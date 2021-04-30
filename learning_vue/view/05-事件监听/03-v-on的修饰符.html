@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div @click="divClick()">
+      <button @click.stop="btnClick()">btn</button>
+    </div>
+  </div>
+<!-- 事件冒泡:点击 btnClick 上面的divClick也会执行-->
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは"
+      },
+      methods:{
+        btnClick(){
+            console.log("btn");
+        },
+        divClick(){
+          console.log("div");
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

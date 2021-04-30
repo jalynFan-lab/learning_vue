@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{message}}
+    <cpn :cmovies="movies" :cmessage="message"></cpn>
+  </div>
+<template id="cpn"> 
+  <div>
+    <ul>
+      <li v-for="movie in cmovies">
+        {{movie}}
+      </li>
+    </ul>
+    {{cmessage}}
+  </div>
+</template>
+  <script>
+    const comcpn = {
+      template:"#cpn",
+      props:{
+        cmovies:{
+          type:Array,
+          default(){
+            return []
+          }
+          //default:[]
+        },
+        cmessage:{
+          type:String,
+          default:"aaa"
+        }
+        // cmovies:Array,
+        // cmessage:String
+      }
+    }
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは",
+          movies:['唐人街探案3','你好，李焕英','送你一朵小红花']
+      },
+      components:{
+        cpn:comcpn
+      }
+    });
+  </script>
+</body>
+
+</html>

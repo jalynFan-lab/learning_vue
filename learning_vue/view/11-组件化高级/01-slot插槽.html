@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <cpn></cpn>
+    <cpn><a href="">LINK</a></cpn>
+    <cpn><span>SPAN</span></cpn>
+    <cpn></cpn>
+  </div>
+<template id="cpn">
+  <div>
+    <h1>我是标题</h1>
+    <p>我是内容</p>
+    <slot><button>BUTTON</button></slot> 
+    <!-- 默认值 -->
+  </div>
+</template>
+  <script>
+    const comcpn = {
+      template:"#cpn"
+    }
+    //slot 比如每次显示组件的一部分内容会变化，组件具有扩展性使用插槽
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは，"
+      },
+      components:{
+        cpn:comcpn
+      }
+    });
+  </script>
+</body>
+
+</html>

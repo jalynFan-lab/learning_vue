@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+ <cpn :cnum1="num1" :cnum2="num2" @dnum1input="cpnnum1input" @dnum2input="cpnnum2input"></cpn>
+  </div>
+<template id="cpn">
+  <div>
+    <h3>prop:{{cnum1}}</h3>
+    <h3>data:{{dnum1}}</h3>
+    <input type="text" :value="dnum1" @input="num1Input">
+    <h3>prop:{{cnum2}}</h3>
+    <h3>data:{{dnum2}}</h3>
+    <input type="text" :value="dnum2" @input="num2Input">
+  </div>
+</template>
+  <script>
+    const comcpn = {
+      template:"#cpn",
+      props:{
+        cnum1:Number,
+        cnum2:Number
+      },
+      data(){
+        return {
+          dnum1 : this.cnum1,
+          dnum2 : this.cnum2
+        }
+      },
+      methods:{
+        num1Input(){
+          this.dnum1 = event.target.value;
+          this.$emit("dnum1input",this.dnum1);
+        },
+        num2Input(){
+          this.dnum2 = event.target.value;
+          this.$emit("dnum2input",this.dnum2);
+        }
+      }
+  }
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          num1:1,
+          num2:2
+      },
+      components:{
+        cpn:comcpn
+      },
+      methods:{
+        cpnnum1input(value){
+          this.num1 = parseFloat(value)
+        },
+        cpnnum2input(value){
+          this.num2 = parseFloat(value)
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

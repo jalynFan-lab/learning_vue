@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="btn1Click">btn1</button>
+    <button @click="btn1Click()">btn1</button>
+    <button @click="btn2Click('test')">btn2</button>
+    <button @click="btn3Click('test',$event)">btn</button>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは",
+          abc :123
+      },
+      methods:{
+        btn1Click(){ //  1没有对象可以不写小括号，也可以写 
+          console.log("btn1Click"+this.abc);
+        },
+        btn2Click(test){ // 2有参数要写
+          console.log("btn2Click"+test);
+        },
+        btn3Click(test,event){ //３　通过event获取window的event事件，传入的时候用＄event
+          console.log("btn3Click"+test);
+          console.log("btn3Click"+event);
+        },
+      }
+    });
+  </script>
+</body>
+
+</html>

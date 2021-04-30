@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="name in names">{{name}}</li>
+    </ul>
+
+    <ul>
+      <li v-for="(name,index) in names">{{index}}-{{name}}</li>
+    </ul>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          names:["aaa","bbb","ccc"]
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2 :style="{backgroundColor:color}">{{message}}</h2>
+    <h2 :style="[font]">{{message}}</h2>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          color:'green',
+          message:'こんにちは',
+          font:{fontSize:'100px'}
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 方案一 过于繁琐 -->
+    <h2>{{firstname}} {{lastname}}</h2>
+    <h2>{{firstname +' '+ lastname}}</h2>
+    <!-- 方案二 methods -->
+    <h2>{{getFullName()}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <!-- 方案三 computed -->
+    <h2>{{fullname}}</h2>
+    <h2>{{fullname}}</h2>
+    <h2>{{fullname}}</h2>
+    <h2>{{fullname}}</h2>
+    
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          firstname:"FAN",
+          lastname:"Jalyn"
+      },
+      methods:{
+        getFullName(){
+          console.log("getfullname")
+          return this.firstname+' '+this.lastname
+        }
+      },
+      computed:{
+        fullname:function(){
+          console.log("fullname")
+          return this.firstname+' '+this.lastname//计算属性和method的区别是；计算属性会缓存，只用执行一次，节省性能；method没有缓存，调一次执行一次
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

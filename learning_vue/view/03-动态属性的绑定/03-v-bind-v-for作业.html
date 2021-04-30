@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(m,index) in movies" v-on:mouseover="mouseOverAction(index)" v-bind:class="getClass(index)">{{m}}</li>
+    </ul>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          movies:['唐人街探案3','你好，李焕英','送你一朵小红花'],
+          currentIndex:0
+      },
+      methods:{
+        mouseOverAction:function(index){
+          this.currentIndex = index;
+        },
+       
+        getClass:function(index){
+          return {active: this.currentIndex === index}
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

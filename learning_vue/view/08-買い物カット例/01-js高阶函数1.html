@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{message}}
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは"
+      }
+    });
+
+    //js高级函数
+    const nums = [100,20,102,244,565,20,3434,333,10]
+
+
+
+  let total = nums
+  .filter(function(n){return n < 100})
+  .map(function(n){return n*2})
+  .reduce(function(preValue,n){return preValue + n},0)
+  console.log(total)
+  
+
+  </script>
+</body>
+
+</html>

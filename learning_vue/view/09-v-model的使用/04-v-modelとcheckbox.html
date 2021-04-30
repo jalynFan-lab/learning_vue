@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!--单选框 ·boolean -->
+    <label for="accept">
+      <input type="checkbox" id="accept" v-model="isAgree">I Agree
+    </label>
+    <h2>{{isAgree}}</h2>
+    <button :disabled="!isAgree">下一步</button>
+<br>
+<!--多选框 ·boolean -->
+    <input type="checkbox" value="Swimming" v-model="hobbies">Swimming
+    <input type="checkbox" value="eatting" v-model="hobbies">eatting
+    <input type="checkbox" value="jummping" v-model="hobbies">jummping
+    <input type="checkbox" value="sleeping" v-model="hobbies">sleeping
+    Hobbies:{{hobbies}}
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは",
+          isAgree:false,
+          hobbies:[]
+      }
+    });
+  </script>
+</body>
+
+</html>

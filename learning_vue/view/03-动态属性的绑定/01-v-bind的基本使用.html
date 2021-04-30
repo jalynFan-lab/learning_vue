@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{message}}
+    <img v-bind:src="imgURL" alt="">
+    <a v-bind:href="GoogleUrl">GoogleUrl</a>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは",
+          imgURL:"https://www.tobezoo.com/animals/img/mn03.jpg",
+          GoogleUrl:"https://www.google.com/?hl=ja"
+      }
+    });
+  </script>
+</body>
+
+</html>

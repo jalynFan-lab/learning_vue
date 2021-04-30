@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    [v-cloak]{
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    {{message}}
+    <!-- js延时加载时会暴露出源代码，v-cloak就是解决这个问题的,vue解析之前有v-cloak，解析之后就会自动消失 ,设置它在出现的时候不显示-->
+    <!-- 用途:预加载中的填充 ??-->
+  </div>
+  <script src="../../contents/js/vue.js"></script>
+  <script>
+    setTimeout(
+      function(){
+        var vm = new Vue({
+          el: '#app',
+          data: {
+              message:"こんにちは"
+          }
+      });
+      },1000
+    )
+    
+  </script>
+</body>
+
+</html>

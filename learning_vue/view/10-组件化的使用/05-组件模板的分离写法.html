@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{message}}
+    <cnp></cnp>
+  </div>
+<!-- 1 -->
+  <template id="cnp">
+    <div>
+      <h2>template</h2>
+      <h3>template</h3>
+    </div>
+  </template>
+<!-- 2 -->
+<script type="text/x-template" id="cnp">
+  <div>
+    <h2>script</h2>
+    <h3>script</h3>
+  </div>
+</script>
+
+  <script>
+    Vue.component('cnp',{
+        template:"#cnp"
+    })
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは"
+      }
+    });
+  </script>
+</body>
+
+</html>

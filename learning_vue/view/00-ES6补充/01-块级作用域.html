@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button>btn1</button>
+    <button>btn2</button>
+    <button>btn3</button>
+    <button>btn4</button>
+    <button>btn5</button>
+  </div>
+
+  <script>
+   var btns = document.getElementsByTagName("button");
+
+   for(var i = 0;i < btns.length; i++){
+     
+      btns[i].addEventListener('click',function(){
+        console.log('第'+i+'个按钮被点击')
+      })//总是显示最后一个被点击
+    //用 var 声明的变量，不是函数作用域就是全局作用域。
+    //它们在代码块外也是可见的（译注：也就是说，var 声明的变量只有函数作用域和全局作用域，没有块级作用域）。
+
+
+  //  for(var i = 0;i < btns.length; i++){
+  //    (function(){
+  //     btns[i].addEventListener('click',function(){
+  //       console.log('第'+i+'个按钮被点击')
+  //     })
+  //    })(i)//闭包 函数有自己的作用域
+      
+   }
+
+  //  for(let i = 0;i < btns.length; i++){
+  //     btns[i].addEventListener('click',function(){
+  //       console.log('第'+i+'个按钮被点击')
+  //     })//let会有自己的作用域，var没有
+  //  }
+  </script>
+</body>
+
+</html>

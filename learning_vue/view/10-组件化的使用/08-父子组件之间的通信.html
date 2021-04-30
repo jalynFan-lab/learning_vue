@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{message}}
+  </div>
+
+  <script>
+    //父子组件之间的通信
+    //parent --> children pass props
+    //children --> parent $emit event 自定义事件
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは"
+      }
+    });
+  </script>
+</body>
+
+</html>

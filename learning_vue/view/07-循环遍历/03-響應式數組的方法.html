@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="movie in movies">{{movie}}</li>
+    </ul>
+    <button @click="btnClick()">button</button>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          movies:["aaa","bbb","ccc"]
+      },
+      methods:{
+        btnClick(){
+          //刪除：
+          //this.movies.splice(1,2)
+          //替換：
+          //this.movies.splice(1,2,"fan","ju")
+          //挿入
+        　//this.movies.splice(1,0,"fan")
+          //通過索引改變數組中的元素的時候VUE不是相應的不能顯示在頁面上
+          //this.movies[0] = "fan"
+          //vue自己的方法可以響應式
+          Vue.set(this.movies,0,"fan")
+        }
+
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <cnp @itemclick="cpnclick"></cnp>
+  </div>
+<template id="cnp">
+  <div>
+    <button v-for="item in catagories" @click="btnclick(item)">{{item.name}}</button>
+  </div>
+</template>
+  <script>
+
+    const cnp = {
+      template:"#cnp",
+      data(){
+        return {
+          catagories:[
+            {id:1,name:"1111111111"},
+            {id:2,name:"2222222222"},
+            {id:3,name:"3333333333"},
+            {id:4,name:"44444444444"},
+          ]
+        }
+      },
+      methods:{
+        btnclick(item){
+          this.$emit("itemclick",item)
+        }
+      }
+    }
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは"
+      },
+      components:{
+        cnp
+      },
+      methods:{
+        cpnclick(item){
+          console.log("cpnclick",item)
+        }
+      }
+      
+    });
+  </script>
+</body>
+
+</html>

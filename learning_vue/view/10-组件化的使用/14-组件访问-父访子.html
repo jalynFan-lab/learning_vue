@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn ref="a"></cpn>
+    <button @click="btnEvent">BUTTON</button>
+  </div>
+<template id="cpn">
+  <div>
+    children components
+  </div>
+</template>
+  <script>
+    const comcpn = {
+      template:"#cpn",
+      data(){
+        return {
+          message:"children message"
+        }
+      },
+      methods:{
+        showMsg(){
+          console.log(this.message);
+        }
+      }
+    }
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは"
+      },
+      components:{
+        cpn:comcpn
+      },
+      methods:{
+        btnEvent(){
+          //$children 子组件
+          for(let children of this.$children){
+            children.showMsg()
+          }
+          console.log(this.$refs.a.message)
+          //refs 对象类型，默认为空 特定子组件
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

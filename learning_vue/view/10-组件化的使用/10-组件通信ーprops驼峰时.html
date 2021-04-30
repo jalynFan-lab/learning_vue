@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <cnp :c-movies="movies" :c-message="message"></cnp>
+  </div>
+<template id="cnp">
+  <div>
+    <ul>
+      <li v-for="movie in cMovies">
+        {{movie}}
+      </li>
+    </ul>
+    {{cMessage}}
+  </div>
+</template>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        message:"こんにちは",
+          movies:['唐人街探案3','你好，李焕英','送你一朵小红花']
+      },
+      components:{
+        cnp:{
+          template:"#cnp",
+          props:{
+            cMovies:{
+              type:Array
+            },
+            cMessage:String
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

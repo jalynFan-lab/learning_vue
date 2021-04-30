@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{message}}
+    <cnp1></cnp1>
+    <cnp2></cnp2>
+  </div>
+
+  <script>
+
+    Vue.component('cnp1',{
+      template:`
+        <div>
+          <h2>title</h2>
+          <h3>content</h3>
+        </div>
+      `
+    })
+
+
+
+    //语法糖：省略·extend直接将extend的内容写入到component里
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは"
+      },
+      components:{
+        'cnp2':{
+          template:`
+            <div>
+              <h2>titl2e</h2>
+              <h3>content2</h3>
+            </div>
+            `
+          }
+        }
+    });
+  </script>
+</body>
+
+</html>

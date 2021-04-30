@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <span v-if="isUSerID">
+      <label for="userID">User ID:</label>
+      <input type="text" id="userID" placeholder="user ID" key="userid">
+    </span>
+    <span v-else>
+      <label for="useremail">User EMAil:</label>
+      <input type="text" id="useremail" placeholder="user email" key="usermail">
+    </span>
+    <button @click="shift()">Shift</button>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        isUSerID:true
+      },
+      methods:{
+        shift(){
+          this.isUSerID = !this.isUSerID
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

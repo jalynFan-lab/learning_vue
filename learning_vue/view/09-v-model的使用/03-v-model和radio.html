@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <label for="man">
+      <input type="radio" id="man" value="男" v-model="sex">男
+    </label>
+    <label for="woman">
+      <input type="radio" id="woman" value="女" v-model="sex">女
+    </label>
+    <!-- name一样的话就只能选择一个 ，否则两个都会选 有v-model·的时候可以删掉·name -->
+    <h2>{{sex}}</h2>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          sex:"男"
+      }
+    });
+  </script>
+</body>
+
+</html>

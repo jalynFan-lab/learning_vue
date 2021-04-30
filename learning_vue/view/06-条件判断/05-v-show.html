@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+   <h1 v-if="isShow">{{message}}</h1>
+   <h1 v-show="isShow">{{message}}</h1>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは",
+          isShow:false
+      }
+    });
+  </script>
+</body>
+
+</html>

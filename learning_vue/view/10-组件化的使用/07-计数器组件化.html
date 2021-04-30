@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{message}}
+    <cnp></cnp>
+  </div>
+  
+  <template id="cnp">
+    <div>
+      <h2>计数器</h2>
+      <h3>当前记录的数字是:{{counter}}</h3>
+      <button @click="counter--">-</button>
+      <button @click="counter++">+</button>
+    </div>
+  </template>
+  <script>
+
+    Vue.component("cnp",{
+      template:"#cnp",
+      data(){
+        return {
+          counter:0
+        }
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは"
+      }
+    });
+  </script>
+</body>
+
+</html>

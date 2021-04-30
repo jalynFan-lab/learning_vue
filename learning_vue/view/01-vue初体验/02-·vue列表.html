@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>02-·vue列表</title>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <li v-for="item in movies">{{item}}</li>
+            </ul>
+        </div>
+        <script src="../contents/js/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el:'#app',
+                data:{
+                    message:'list display',
+                    movies:['唐人街探案3','你好，李焕英','送你一朵小红花']
+                }
+            })
+        </script>
+    </body>
+</html>

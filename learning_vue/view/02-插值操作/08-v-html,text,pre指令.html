@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="..\..\contents\js\vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{message}}
+    <h3 v-html="url"></h3>
+    <!-- v-html可以解析字符串，不只是只显示 -->
+   <h3 v-text="message"></h3>
+   <h3 v-pre>{{message}}</h3>
+   <!-- v-pre 不解析只显示 -->
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは",
+          url:'<a href = "https://www.refact.net/cgi-bin/cbag/ag.cgi?page=ScheduleIndex">サイボウズ</a>'
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{message}}
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは"
+      }
+    });
+
+    //js高级函数
+    const nums = [100,34,102,244,565,24,3434,333,10]
+//filter用来筛选数组里面的一部分值
+    let newNums = nums.filter(function(n){
+      if(n < 100){
+        return false;
+      }else{
+        return true;
+      }
+    })
+
+    console.log(newNums);
+//map 用来给数组里面的所有值同时转化的时候
+    let newNums2 = nums.map(
+      function(n){
+        return n * 2
+      }
+    )
+    console.log(newNums2);
+
+    //reduce 对数组中的函数进行汇总 ，相乘，相加
+
+  let total = nums.reduce(function(preValue,n){
+    return preValue + n
+  },0)
+
+  
+  //第一次
+  </script>
+</body>
+
+</html>

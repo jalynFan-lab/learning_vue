@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{score}}
+    {{result}}
+  </div>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+          score:100
+      },
+      computed:{
+        result(){
+          let message = '';
+          if(this.score>=90){
+            message = '优秀'
+          }else if(this.score>=80){
+            message = '良好'
+          }else if(this.score>=60){
+            message = '一般'
+          }else{
+            message = '不合格'
+          }
+          return message
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

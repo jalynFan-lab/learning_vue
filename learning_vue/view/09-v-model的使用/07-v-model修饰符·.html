@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- lazy 失去焦点和回车的时候才会更新 -->
+    <input type="text" v-model.lazy="message"></input>
+
+    <h2>{{message}}</h2>
+
+    <!-- number v-model默认的是string类型，·number可以不用转换类型 -->
+    <input type="number" v-model.number="age">
+    <h2>{{age}}-{{typeof age}}</h2>
+    <!-- 222222string -->
+
+    <!-- trim -->
+    去除空格
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは",
+          age:1
+      }
+    });
+  </script>
+</body>
+
+</html>
