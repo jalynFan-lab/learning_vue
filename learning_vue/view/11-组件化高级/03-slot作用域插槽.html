@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../contents/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <cpn></cpn>
+    <cpn>
+    <template v-slot="movies">
+      {{movies.movie.join("-")}}
+    </template>
+    </cpn>
+  </div>
+<template id="cpn">
+ <div>
+  <slot :movie="movies">
+    <ul>
+      <li v-for="movie in movies">{{movie}}</li>
+    </ul>
+  </slot>
+ </div>
+</template>
+  <script>
+    const comcpn = {
+      template:"#cpn",
+      data(){
+        return{
+          movies:['唐人街探案3','你好，李焕英','送你一朵小红花']
+        }
+      }
+    }
+    //slot 比如每次显示组件的一部分内容会变化，组件具有扩展性使用插槽
+    var vm = new Vue({
+      el: '#app',
+      data: {
+          message:"こんにちは，"
+      },
+      components:{
+        cpn:comcpn
+      }
+    });
+  </script>
+</body>
+
+</html>
